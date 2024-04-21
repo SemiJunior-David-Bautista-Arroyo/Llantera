@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Insertar Marca</h1>
+            <form (submit)="new_marca()">
+              <div class="mb-3">
+                <label for="marcaId" class="form-label">ID de Marca</label>
+                <input type="number" [(ngModel)]="miMarca.marcaId" class="form-control" id="marcaId" name="marcaId" required>
+              </div>
+              <div class="mb-3">
+                <label for="marca" class="form-label">Marca</label>
+                <input type="text" [(ngModel)]="miMarca.marca" class="form-control" id="marca" name="marca" required>
+              </div>
+              <div class="mb-3">
+                <label for="imagen" class="form-label">Imagen</label>
+                <input type="file" (change)="convertir_B64($event)"
+                 class="form-control" id="imagen" name="imagen" accept="img/*" required>
+              </div>
+              <div class="mb-3">
+                <label for="sitio_web" class="form-label">Sitio Web</label>
+                <input type="text" [(ngModel)]="miMarca.sitio_web" class="form-control" id="sitio_web" name="sitio_web" required>
+              </div>
+              <div class="mb-3">
+                <label for="anio_fundacion" class="form-label">Año de Fundación</label>
+                <input type="number" [(ngModel)]="miMarca.anio_fundacion" class="form-control" id="anio_fundacion" name="anio_fundacion" required>
+              </div>
+              <button type="submit" class="btn btn-outline-info">Insertar Marca</button>
+            </form>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"
+    ></script>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"
+    ></script>
+    </html>

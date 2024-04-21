@@ -1,0 +1,38 @@
+<h1>CATALOGO DE MARCAS</h1>
+<div class="table-responsive">
+    <table class="table table-dark  bg-dark table-striped table-bordered">
+        <thead>
+        <th>_id</th>
+        <th>marcaId</th>
+        <th>marca</th>
+        <th>imagen</th>
+        <th>sitio_web</th>
+        <th>anio_fundacion</th>    
+        <th>Opciones</th>
+        </thead>
+        <tr *ngFor="let marc of listaMarcas">
+            <td>{{marc._id}}</td>
+            <td>{{marc.marcaId}}</td>
+            <td>{{marc.marca}}</td>
+            <td><img src="{{marc.imagen}}" width="80px" title="Logo Marca"></td>
+            <td>{{marc.sitio_web}}</td>
+            <td>{{marc.anio_fundacion}}</td>
+            <td>
+                <div styleshet="display: inline-block;">
+                <span>
+                <a [routerLink]="['/marcaseliminar', marc._id]">
+                <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+                
+                <span class="pl-8">
+                  <a [routerLink]="['/marcasactualizar', marc._id,]">
+                  <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
+                  </a>
+                </span>
+                </div>
+                </td>
+        </tr>
+    </table>
+</div>

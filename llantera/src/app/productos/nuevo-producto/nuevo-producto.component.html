@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Formulario de Llantas</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    
+    <!-- Bootstrap CSS v5.3.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  </head>
+  
+  <body>
+    <div class="container">
+      <form (submit)="new_product()">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="cveInput" class="form-label">CVE</label>
+              <input type="text" class="form-control" id="cveInput" [(ngModel)]= "miProd.cve" name="cve" value="UNI0013">
+            </div>
+            <div class="mb-3">
+              <label for="marcaSelect" class="form-label">Marca</label>
+              <select #id_Marca class="form-select"
+              (change)="get_id_marca(id_Marca.value)" [(ngModel)]="miProd.marca"
+               id="marcaSelect" name="marca">
+                <option>--Marca--</option>
+                <option *ngFor="let m of listaMarcas" [value]="m._id">
+                  {{ m.marca }} 
+                </option>
+                  
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="anchoInput" class="form-label">Ancho</label>
+              <input type="number" class="form-control" id="anchoInput" [(ngModel)] = "miProd.medida.ancho" name="medida">
+            </div>
+            <div class="mb-3">
+              <label for="serieInput" class="form-label">Serie</label>
+              <input type="number" class="form-control" id="serieInput" [(ngModel)] = "miProd.medida.serie" name="medida">
+            </div>
+            <div class="mb-3">
+              <label for="rinInput" class="form-label">Rin</label>
+              <input type="number" class="form-control" id="rinInput" [(ngModel)] = "miProd.medida.rin" name="medida">
+            </div>
+            <div class="mb-3">
+              <label for="presionmaxInput" class="form-label">Presión Máxima</label>
+              <input type="number" class="form-control" id="presionmaxInput" [(ngModel)] = "miProd.presionmax" name="presionmax">
+            </div>
+            <div class="mb-3">
+              <label for="cargaInput" class="form-label">Índice de Carga</label>
+              <input type="number" class="form-control" id="cargaInput" [(ngModel)] = "miProd.indices.carga" name="indices">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="velocidadInput" class="form-label">Índice de Velocidad</label>
+              <input type="text" class="form-control" id="velocidadInput" [(ngModel)] = "miProd.indices.velocidad" name="indices">
+            </div>
+            <div class="mb-3">
+              <label for="tipoInput" class="form-label">Tipo</label>
+              <select #id_Tipo class="form-select"
+                (change)="get_tipos()" id="tipoInput" [(ngModel)]="miProd.tipo" name="tipo">
+                  <option>--Tipo--</option>
+                  <option *ngFor="let t of listaTipo" [value]="t" >
+                    {{t}}
+                  </option>
+              </select>
+          </div>
+            <div class="mb-3">
+              <label for="alturaInput" class="form-label">Altura</label>
+              <input type="number" class="form-control" id="alturaInput" [(ngModel)] = "miProd.altura" name="altura">
+            </div>
+            <div class="mb-3">
+              <label for="diametro_infInput" class="form-label">Diámetro Inferior</label>
+              <input type="number" class="form-control" id="diametro_infInput" [(ngModel)] = "miProd.diametro_inf" name="diametro_inf">
+            </div>
+            <div class="mb-3">
+              <label for="modeloInput" class="form-label">Modelo</label>
+              <select class="form-select"
+              (change)="get_modelo()" id="modeloInput"
+              [(ngModel)]="miProd.modelo" name="modelo">
+                  <option value="">--Modelo--</option>
+                  <option *ngFor="let mod of listaModelo" [value]="mod">
+                    {{mod}}
+                  </option>
+              </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Resistencia</label><br>
+            <select (change)="get_res()" class="form-select" id="resistenciaSelect" 
+            [(ngModel)]="miProd.resistencia" name="resistencia" >
+              <option>--Resistencia--</option>
+              <option *ngFor="let r of listaResistencia" [value]="r">
+                {{r}}
+              </option>
+            </select>
+        </div>
+        
+        
+            <div class="mb-3">
+              <label for="fecha_fInput" class="form-label">Fecha de Fabricación</label>
+              <input type="date" class="form-control" id="fecha_fInput" [(ngModel)] = "miProd.fecha_f" name="fecha_f">
+            </div>
+            <div class="mb-3">
+              <label for="costoInput" class="form-label">Costo</label>
+              <input type="number" class="form-control" id="costoInput" [(ngModel)] = "miProd.costo" name="costo">
+            </div>
+            <div class="mb-3">
+              <label for="descripcionInput" class="form-label">Descripción</label>
+              <textarea class="form-control" id="descripcionInput" [(ngModel)] = "miProd.descripcion" name="descripcion" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="origenInput" class="form-label">Origen</label>
+              <select (change)="get_pais()" class="form-select" id="origenInput" 
+              [(ngModel)]="miProd.origen" name="origen">
+                <option value="">--Origen-</option>
+                <option *ngFor="let p of listaPais" [value]="p">
+                  {{p}}
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="statusInput" class="form-label">Estatus</label>
+              <input type="text" class="form-control" id="statusInput" [(ngModel)] = "miProd.status" name="status" value="activo" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="existenciaInput" class="form-label">Existencia</label>
+              <input type="number" class="form-control" id="existenciaInput" [(ngModel)] = "miProd.existencia" name="existencia">
+            </div>
+            <div class="mb-3">
+              <label for="fecha_adInput" class="form-label">Fecha de Adquisición</label>
+              <input type="date" class="form-control" id="fecha_adInput" [(ngModel)] = "miProd.fecha_ad" name="fecha_ad">
+            </div>
+            <div class="mb-3">
+                <label for="fotoInput" class="form-label">Foto</label>
+                <input type="file" class="form-control" id="fotoInput"
+                 (change)="convertir_B64($event)" name="foto" accept="image/*">
+            </div>
+            <div class="mb-3">
+              <label for="temporadaSelect" class="form-label">Temporada</label><br>
+              <div *ngFor="let temporada of temporadas">
+                  <input type="checkbox" id="{{ temporada }}" name="temporada" [(ngModel)]="temporadaSeleccionada[temporada]" [value]="temporada">
+                  <label for="{{ temporada }}">{{ temporada }}</label><br>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="proveedorSelect" class="form-label">Proveedor</label>
+              <select #id_Proveedor class="form-select"
+              (change)="get_prov(id_Proveedor.value)" id="proveedorSelect" name="proveedor_id">
+                <option value="">--Proovedor--</option>
+                <option *ngFor="let pr of listaProvee" [value]="pr._id">
+                    {{pr.nombre_proveedor}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div align="center"   >
+        <button class="btn btn-outline-info" type="submit">Enviar</button>
+      </div>
+      </form>
+    </div>

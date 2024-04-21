@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+      <h1>LLANTERA NANCY's EL AMOR DE MI VIDA LE OFRECE</h1>
+
+      <div class="table-responsive">
+        <table class="table table-dark table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>_id</th>
+              <th>altura</th>
+              <th>costo</th>
+              <th>cve</th>
+              <th>descripcion</th>
+              <th>diametro inferior</th>
+              <th>existencia</th>
+              <th>fecha_ad</th>
+              <th>fecha_cr</th>
+              <th>fecha_f</th>
+              <th>imagen</th>
+              <th>carga</th>
+              <th>velocidad</th>
+              <th>marca</th>
+              <th>ancho</th>
+              <th>rin</th>
+              <th>serie</th>
+              <th>modelo</th>
+              <th>origen</th>
+              <th>precio</th>
+              <th>presionmax</th>
+              <th>proveedor_id</th>
+              <th>resistencia</th>
+              <th>status</th>
+              <th>temporada</th>
+              <th>tipo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let prod of listaProducto">
+              <td>{{prod._id}}</td>
+              <td>{{prod.altura}}</td>
+              <td>{{prod.costo}}</td>
+              <td>{{prod.cve}}</td>
+              <td>{{prod.descripcion}}</td>
+              <td>{{prod.diametro_inf}}</td>
+              <td>{{prod.existencia}}</td>
+              <td>{{prod.fecha_ad}}</td>
+              <td>{{prod.fecha_cr}}</td>
+              <td>{{prod.fecha_f}}</td>
+              <td><img src="{{prod.foto}}" width="50px" title="Imagen auto"></td>
+              <td>{{prod.indices.carga}}</td>
+              <td>{{prod.indices.velocidad}}</td>
+              <td>{{prod.marca}}</td>
+              <td>{{prod.medida.ancho}}</td>
+              <td>{{prod.medida.rin}}</td>
+              <td>{{prod.medida.serie}}</td>
+              <td>{{prod.modelo}}</td>
+              <td>{{prod.origen}}</td>
+              <td>{{prod.precio}}</td>
+              <td>{{prod.presionmax}}</td>
+              <td>{{prod.prooveedor_id}}</td>
+              <td>{{prod.resistencia}}</td>
+              <td>{{prod.status}}</td>
+              <td>{{prod.temporada}}</td>
+              <td>{{prod.tipo}}</td>
+              <!--  -->
+              <td>
+                <div styleshet="display: inline-block;">
+                <span>
+                <a [routerLink]="['/productoseliminar', prod._id]">
+                <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
+                </a>
+                </span>
+                
+                <span class="pl-8">
+                  <a [routerLink]="['/prodActualizar', prod._id,]">
+                  <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
+                  </a>
+                </span>
+                </div>
+                </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+</body>
+<script
+  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+  crossorigin="anonymous"
+></script>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+  integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+  crossorigin="anonymous"
+></script>
+</html>
